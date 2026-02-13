@@ -10,6 +10,8 @@ This portfolio is still a work in progress as I continue polishing and adding mo
 
 # Geospatial Projects
 
+- [Geospatial MLOps](https://github.com/astroAycha/geospatial_mlops)
+
 - [GTA Air Quality](https://github.com/astroAycha/geospatial_sandbox/tree/main/gta_airquality)
 
 - [Tracking Spectral Indices](https://github.com/astroAycha/geospatial_sandbox/tree/main/track_spectral_indices)
