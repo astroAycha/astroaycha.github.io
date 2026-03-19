@@ -34,10 +34,18 @@
         .top-nav {
             display: flex;
             gap: 0.5rem;
-            background: #ffffff;
+            background: #ffffff; /* Changed to white background */
             border: 1px solid #e5e7eb;
             border-radius: 12px;
-            padding: 0.5rem;
+            padding: 1rem; /* Ensure consistent size */
+            color: #6b929e; /* Adjusted font color for contrast */
+        }
+        .top-nav .tab {
+            color: #6b929e; /* Ensure tabs inherit new font color */
+        }
+        .top-nav .tab.active {
+            background: #dbeafe;
+            color: #1e3a8a; /* Keep active tab distinct */
         }
         .tab {
             padding: 0.55rem 0.9rem;
