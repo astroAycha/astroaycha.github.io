@@ -1,69 +1,175 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aycha Tammour | Astro Research</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Aycha Tammour, PhD | Astro Research</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
-            --dark: #1c2128;
-            --light: #ffffff;
-            --accent: #b0dbc9;
+            --bg:        #f4f8ff;
+            --bg-subtle: #eaf1fb;
+            --border:    #d6e1f0;
+            --border-mid:#bccde3;
+            --text:      #1c2633;
+            --text-mid:  #2f3f55;
+            --text-muted:#4d6484;
+            --text-dim:  #6e86a6;
+            --ochre:     #2f6fb3;
+            --ochre-mid: #87add9;
+            --ochre-bg:  #e3eefb;
+            --font-sans: 'DM Sans', sans-serif;
+            --font-serif:'DM Serif Display', serif;
+            --font-mono: 'DM Mono', monospace;
         }
 
-        * {
-            box-sizing: border-box;
-        }
+        html { font-size: 16px; }
 
         body {
-            margin: 0;
-            background: var(--light);
-            color: var(--dark);
-            font-family: "Segoe UI", Helvetica, sans-serif;
-            line-height: 1.65;
+            font-family: var(--font-sans);
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
         }
 
-        .page {
-            max-width: 980px;
+        a {
+            color: var(--ochre);
+            text-decoration: none;
+            border-bottom: 1px solid var(--ochre-mid);
+            padding-bottom: 1px;
+            transition: color 0.15s, border-color 0.15s;
+        }
+
+        a:hover {
+            color: var(--text);
+            border-color: var(--text);
+        }
+
+        .container {
+            max-width: 720px;
             margin: 0 auto;
-            padding: 2rem 1.2rem 3rem;
+            padding: 0 2rem;
         }
 
-        .topbar {
+        nav {
+            border-bottom: 0.5px solid var(--border);
+            padding: 1.25rem 0;
+        }
+
+        nav .container {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 1rem;
-            border-bottom: 1px solid var(--dark);
-            padding-bottom: 0.9rem;
-            margin-bottom: 1.4rem;
         }
 
-        h1 {
-            margin: 0;
-            font-size: clamp(1.4rem, 3vw, 2rem);
+        .nav-logo {
+            font-family: var(--font-mono);
+            font-size: 11px;
+            font-weight: 500;
+            letter-spacing: 0.14em;
+            color: var(--ochre);
+            text-transform: uppercase;
+            border: none;
+            padding: 0;
         }
 
-        h2 {
-            margin: 1.6rem 0 0.6rem;
-            font-size: 1.1rem;
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-            padding-bottom: 0.2rem;
+        .nav-logo:hover {
+            color: var(--ochre);
+            border: none;
         }
 
-        p {
-            margin: 0 0 0.95rem;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
         }
 
-        .intro {
-            margin-bottom: 1.2rem;
+        .nav-links a {
+            font-size: 13px;
+            color: var(--text-dim);
+            border: none;
+            padding: 0;
+            letter-spacing: 0.02em;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: var(--text);
+            border-bottom: 1px solid var(--ochre);
+            padding-bottom: 1px;
+        }
+
+        .hero {
+            padding: 4rem 0 3.5rem;
+            border-bottom: 0.5px solid var(--border);
+        }
+
+        .hero h1 {
+            font-family: var(--font-serif);
+            font-size: clamp(36px, 6vw, 48px);
+            line-height: 1.1;
+            font-weight: 400;
+            color: var(--text);
+            margin-bottom: 1rem;
+        }
+
+        .hero-intro {
+            font-size: 14.5px;
+            line-height: 1.85;
+            color: var(--text-mid);
+            font-weight: 300;
+            max-width: 56ch;
+        }
+
+        main {
+            padding: 3rem 0 5rem;
+        }
+
+        .section {
+            margin-bottom: 3rem;
+        }
+
+        .section + .section {
+            padding-top: 2.75rem;
+            border-top: 0.5px solid var(--border);
+        }
+
+        .label {
+            font-family: var(--font-mono);
+            font-size: 10px;
+            letter-spacing: 0.18em;
+            color: var(--ochre);
+            text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .section-title {
+            font-family: var(--font-serif);
+            font-size: 26px;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-bottom: 0.9rem;
+            color: var(--text);
+        }
+
+        .bio {
+            font-size: 14.5px;
+            line-height: 1.85;
+            color: var(--text-mid);
+            font-weight: 300;
+            max-width: 56ch;
+            margin-bottom: 0.85rem;
         }
 
         .research-image {
-            margin: 0.9rem 0 1.1rem;
-            border: 1px solid var(--dark);
-            background: var(--light);
+            margin-top: 1.2rem;
+            border: 0.5px solid var(--border-mid);
+            background: #fff;
         }
 
         .research-image img {
@@ -75,95 +181,141 @@
         .caption {
             margin: 0;
             padding: 0.55rem 0.75rem;
-            font-size: 0.95rem;
-            border-top: 1px solid var(--dark);
+            font-size: 12.5px;
+            color: var(--text-muted);
+            border-top: 0.5px solid var(--border-mid);
+            background: var(--bg-subtle);
         }
 
-        .publications {
-            margin-top: 1.4rem;
-            padding-top: 1rem;
-            border-top: 1px solid var(--dark);
+        .pub-list {
+            list-style: none;
         }
 
-        ul {
-            margin: 0.5rem 0 0;
-            padding-left: 1.2rem;
+        .pub-list li {
+            padding: 1rem 0;
+            border-top: 0.5px solid var(--border);
         }
 
-        a {
-            color: var(--dark);
-            text-decoration: none;
-            border-bottom: 1px solid var(--dark);
+        .pub-list li:first-child {
+            border-top: none;
+            padding-top: 0;
         }
 
-        a:hover,
-        a:focus-visible {
-            background: var(--dark);
-            color: var(--light);
-            text-decoration: none;
+        .pub-title {
+            font-size: 13.5px;
+            color: var(--text-mid);
+            font-weight: 300;
+            line-height: 1.6;
         }
 
-        @media (max-width: 760px) {
-            .page {
-                padding: 1.2rem 1rem 2.2rem;
-            }
+        .pub-title a {
+            color: var(--text-mid);
+            border-bottom: 1px solid var(--border-mid);
+        }
 
-            .topbar {
-                flex-direction: column;
-                align-items: flex-start;
-            }
+        .pub-title a:hover {
+            color: var(--ochre);
+            border-color: var(--ochre-mid);
+        }
+
+        @media (max-width: 600px) {
+            .container { padding: 0 1.25rem; }
+            .hero { padding: 2.5rem 0; }
+            .nav-links { gap: 1.25rem; }
+            main { padding: 2.25rem 0 4rem; }
         }
     </style>
 </head>
 <body>
-    <main class="page">
-        <div class="topbar">
-            <h1>Astro Research</h1>
-            <a href="index.html">Back to About Me</a>
-        </div>
 
-        <p class="intro">Please see below for a quick tour of my academic research in Astronomy. Most of my work involves studying large samples of quasar spectra using data from the Sloan Digital Sky Survey (SDSS), which allowed me to explore statistical characteristics of quasars and uncover correlations among their properties.</p>
-
-        <section>
-            <h2>Quasar Narrow Line Region and Optical Spectra</h2>
-            <p>Quasar optical spectra show strong blue continua and broad emission lines with velocity widths of thousands of km/s, indicating gas close to the supermassive black hole. In addition to broad lines, narrow forbidden lines are present with smaller velocity widths, suggesting low-density gas at larger host-galaxy scales.</p>
-            <p>In this work, I analyzed narrow-line properties across redshift and at different levels of continuum luminosity and broad Balmer-line width, both of which can partly trace accretion state.</p>
-            <div class="research-image">
-                <img src="https://aychatammour.com/wp-content/uploads/2015/09/optical2.jpeg" alt="Optical quasar composite spectra" loading="lazy">
-                <p class="caption">Optical quasar composite spectra from Tammour et al.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Quasar Winds Probed through UV Spectra</h2>
-            <p>Quasar UV spectra show signatures of outflowing winds through blueshifted emission and broad absorption features, especially in CIV. These winds can reach very high velocities and are central to understanding quasar feedback and line-of-sight orientation effects.</p>
-            <div class="research-image">
-                <img src="https://aychatammour.com/wp-content/uploads/2015/09/quasar_winds.jpg" alt="Illustration of quasar winds" loading="lazy">
-                <p class="caption">Accretion disk winds accelerated by UV photons.</p>
-            </div>
-            <div class="research-image">
-                <img src="https://aychatammour.com/wp-content/uploads/2015/09/balqsos1.jpg" alt="Composite spectra for broad absorption line quasars" loading="lazy">
-                <p class="caption">Composite spectra for broad absorption line (BAL) quasars.</p>
-            </div>
-        </section>
-
-        <section>
-            <h2>Machine Learning and Unsupervised Clustering</h2>
-            <p>Unsupervised clustering is a powerful way to probe high-dimensional astronomical data without assuming predefined classes. During my PhD research, I used clustering methods to identify structure in quasar UV spectral parameter space using both high- and low-ionization lines.</p>
-            <div class="research-image">
-                <img src="https://aychatammour.com/wp-content/uploads/2015/09/civ_clusters_composites.jpg" alt="Clustering results for CIV spectral composites" loading="lazy">
-                <p class="caption">Clustering analysis of quasar UV spectral properties.</p>
-            </div>
-        </section>
-
-        <section class="publications">
-            <h2>Selected Publications</h2>
-            <ul>
-                <li><a href="https://academic.oup.com/mnras/article/448/4/3354/956083" target="_blank" rel="noopener noreferrer">Tracing quasar narrow-line regions across redshift: a library of high-S/N optical spectra</a>, Tammour, A. et al., 2016, Monthly Notices of the Royal Astronomical Society, 448, 3354.</li>
-                <li><a href="https://academic.oup.com/mnras/article/459/2/1659/2594954" target="_blank" rel="noopener noreferrer">Insights into quasar UV spectra using unsupervised clustering analysis</a>, Tammour, A. et al., 2016, Monthly Notices of the Royal Astronomical Society, 459, 1659.</li>
-                <li><a href="http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?db_key=AST&db_key=PRE&qform=AST&author=Tammour" target="_blank" rel="noopener noreferrer">Full publications list on ADS</a></li>
+    <nav>
+        <div class="container">
+            <a class="nav-logo" href="index.html">AT</a>
+            <ul class="nav-links">
+                <li><a href="index.html">About</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="research.html" class="active">Research</a></li>
             </ul>
-        </section>
+        </div>
+    </nav>
+
+    <header class="hero">
+        <div class="container">
+            <h1>Astro Research</h1>
+            <p class="hero-intro">
+                A quick tour of my academic research in astronomy. Most of this work studies large samples of quasar spectra from the Sloan Digital Sky Survey (SDSS), with a focus on statistical structure and physical interpretation.
+            </p>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+
+            <section class="section">
+                <p class="label">Optical Spectra</p>
+                <h2 class="section-title">Quasar Narrow Line Region and Optical Spectra</h2>
+                <p class="bio">Quasar optical spectra show strong blue continua and broad emission lines with velocity widths of thousands of km/s, indicating gas close to the supermassive black hole. In addition to broad lines, narrow forbidden lines are present with smaller velocity widths, suggesting low-density gas at larger host-galaxy scales.</p>
+                <p class="bio">In this work, I analyzed narrow-line properties across redshift and at different levels of continuum luminosity and broad Balmer-line width, both of which can partly trace accretion state.</p>
+                <div class="research-image">
+                    <img src="optical2.jpeg" alt="Optical quasar composite spectra" loading="lazy" />
+                    <p class="caption">Optical quasar composite spectra from Tammour et al.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <p class="label">UV Spectra</p>
+                <h2 class="section-title">Quasar Winds Probed Through UV Spectra</h2>
+                <p class="bio">Quasar UV spectra show signatures of outflowing winds through blueshifted emission and broad absorption features, especially in CIV. These winds can reach very high velocities and are central to understanding quasar feedback and line-of-sight orientation effects.</p>
+                <div class="research-image">
+                    <img src="quasar_winds.jpg" alt="Illustration of quasar winds" loading="lazy" />
+                    <p class="caption">Accretion disk winds accelerated by UV photons.</p>
+                </div>
+                <div class="research-image">
+                    <img src="balqsos1.jpg" alt="Composite spectra for broad absorption line quasars" loading="lazy" />
+                    <p class="caption">Composite spectra for broad absorption line (BAL) quasars.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <p class="label">Machine Learning</p>
+                <h2 class="section-title">Unsupervised Clustering of Quasar Spectra</h2>
+                <p class="bio">Unsupervised clustering is a powerful way to probe high-dimensional astronomical data without assuming predefined classes. During my PhD research, I used clustering methods to identify structure in quasar UV spectral parameter space using both high- and low-ionization lines.</p>
+                <div class="research-image">
+                    <img src="civ_clusters_composites.jpg" alt="Clustering results for CIV spectral composites" loading="lazy" />
+                    <p class="caption">Clustering analysis of quasar UV spectral properties.</p>
+                </div>
+            </section>
+
+            <section class="section">
+                <p class="label">Publications</p>
+                <h2 class="section-title">Selected Publications</h2>
+                <ul class="pub-list">
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://academic.oup.com/mnras/article/448/4/3354/956083" target="_blank" rel="noopener noreferrer">
+                                Tracing quasar narrow-line regions across redshift: a library of high-S/N optical spectra
+                            </a>, Tammour, A. et al., 2016, Monthly Notices of the Royal Astronomical Society, 448, 3354.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="pub-title">
+                            <a href="https://academic.oup.com/mnras/article/459/2/1659/2594954" target="_blank" rel="noopener noreferrer">
+                                Insights into quasar UV spectra using unsupervised clustering analysis
+                            </a>, Tammour, A. et al., 2016, Monthly Notices of the Royal Astronomical Society, 459, 1659.
+                        </p>
+                    </li>
+                    <li>
+                        <p class="pub-title">
+                            <a href="http://adsabs.harvard.edu/cgi-bin/nph-abs_connect?db_key=AST&db_key=PRE&qform=AST&author=Tammour" target="_blank" rel="noopener noreferrer">
+                                Full publications list on ADS
+                            </a>
+                        </p>
+                    </li>
+                </ul>
+            </section>
+
+        </div>
     </main>
+
 </body>
 </html>

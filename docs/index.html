@@ -1,208 +1,416 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aycha Tammour, PhD | Portfolio</title>
-    <style>
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-            margin: 0;
-            padding: 2rem;
-            line-height: 1.6;
-            background: #f7f9fc;
-            color: #1f2937;
-        }
-        h1, h2, h3 {
-            color: #6b929e;
-        }
-        a {
-            color: #0366d6;
-            text-decoration: none;
-        }
-        a:hover {
-            text-decoration: underline;
-        }
-        ul {
-            list-style-type: disc;
-            padding-left: 1.5rem;
-        }
-        hr {
-            margin: 2rem 0;
-        }
-        .page {
-            max-width: 1100px;
-            margin: 0 auto;
-            display: grid;
-            grid-template-columns: 280px 1fr;
-            gap: 2rem;
-        }
-        .sidebar {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 1.25rem;
-            height: fit-content;
-            position: sticky;
-            top: 1.5rem;
-        }
-        .sidebar h1 {
-            font-size: 1.5rem;
-            line-height: 1.3;
-            margin: 0 0 0.5rem;
-        }
-        .sidebar .role {
-            margin: 0 0 1.2rem;
-            color: #4b5563;
-            font-size: 0.95rem;
-        }
-        .contact h2 {
-            font-size: 1rem;
-            margin: 0 0 0.6rem;
-        }
-        .contact ul {
-            margin: 0;
-            padding-left: 1.2rem;
-        }
-        .contact-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .contact-icon {
-            width: 14px;
-            height: 14px;
-            fill: currentColor;
-            flex-shrink: 0;
-        }
-        .content {
-            background: #ffffff;
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 1.5rem;
-        }
-        .top-nav-wrap {
-            max-width: 1100px;
-            margin: 0 auto 1rem;
-        }
-        .top-nav {
-            display: flex;
-            gap: 0.5rem;
-            background: #ffffff; /* Changed to white background */
-            border: 1px solid #e5e7eb;
-            border-radius: 12px;
-            padding: 1rem; /* Ensure consistent size */
-            color: #6b929e; /* Adjusted font color for contrast */
-        }
-        .top-nav .tab {
-            color: #6b929e; /* Ensure tabs inherit new font color */
-        }
-        .top-nav .tab.active {
-            background: #e0e0e0; /* Lighter gray background for active tab */
-            color: #455455; /* Keep active tab distinct */
-        }
-        .tab {
-            padding: 0.55rem 0.9rem;
-            border-radius: 8px;
-            font-weight: 600;
-            color: #334155;
-        }
-        .tab:hover {
-            text-decoration: none;
-            background: #f1f5f9;
-        }
-        @media (max-width: 860px) {
-            body {
-                padding: 1rem;
-            }
-            .top-nav-wrap {
-                margin-bottom: 0.75rem;
-            }
-            .page {
-                grid-template-columns: 1fr;
-                gap: 1rem;
-            }
-            .sidebar {
-                position: static;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aycha Tammour, PhD | Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    /* ─── Reset ─────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ─── Tokens ─────────────────────────────────────── */
+    :root {
+      --bg:        #f4f8ff;
+      --bg-subtle: #eaf1fb;
+      --border:    #d6e1f0;
+      --border-mid:#bccde3;
+      --text:      #1c2633;
+      --text-mid:  #2f3f55;
+      --text-muted:#4d6484;
+      --text-dim:  #6e86a6;
+      --ochre:     #2f6fb3;
+      --ochre-mid: #87add9;
+      --ochre-bg:  #e3eefb;
+      --font-sans: 'DM Sans', sans-serif;
+      --font-serif:'DM Serif Display', serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    /* ─── Base ───────────────────────────────────────── */
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--ochre);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ochre-mid);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    a:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    /* ─── Layout ─────────────────────────────────────── */
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    /* ─── Nav ────────────────────────────────────────── */
+    nav {
+      border-bottom: 0.5px solid var(--border);
+      padding: 1.25rem 0;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--ochre);
+      text-transform: uppercase;
+      border: none;
+      padding: 0;
+    }
+
+    .nav-logo:hover {
+      color: var(--ochre);
+      border: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-dim);
+      border: none;
+      padding: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      border-bottom: 1px solid var(--ochre);
+      padding-bottom: 1px;
+    }
+
+    /* ─── Hero ───────────────────────────────────────── */
+    .hero {
+      padding: 4rem 0 3.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(40px, 7vw, 58px);
+      line-height: 1.05;
+      font-weight: 400;
+      color: var(--text);
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--text-muted);
+    }
+
+    .hero-title {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 300;
+      letter-spacing: 0.05em;
+      margin-top: 1.4rem;
+    }
+
+    .hero-title .sep {
+      color: var(--ochre);
+      margin: 0 8px;
+      font-size: 11px;
+    }
+
+    .hero-links {
+      display: flex;
+      gap: 1.75rem;
+      margin-top: 2rem;
+      list-style: none;
+    }
+
+    .hero-links a {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--ochre);
+      text-transform: uppercase;
+      border-bottom: 1px solid var(--ochre-mid);
+      padding-bottom: 2px;
+    }
+
+    .hero-links a:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    /* ─── Main content ───────────────────────────────── */
+    main {
+      padding: 3rem 0 5rem;
+    }
+
+    .section {
+      margin-bottom: 3rem;
+    }
+
+    .section + .section {
+      padding-top: 2.75rem;
+      border-top: 0.5px solid var(--border);
+    }
+
+    /* Section label (replaces h2) */
+    .label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--ochre);
+      text-transform: uppercase;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Bio */
+    .bio {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--text-mid);
+      font-weight: 300;
+      max-width: 56ch;
+    }
+
+    /* Stack tags */
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 10.5px;
+      padding: 5px 11px;
+      background: var(--bg-subtle);
+      border: 0.5px solid var(--border-mid);
+      border-radius: 2px;
+      color: var(--text-muted);
+      letter-spacing: 0.02em;
+    }
+
+    /* Education */
+    .edu-inst {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .edu-degree {
+      font-size: 13px;
+      color: var(--text-dim);
+      font-weight: 300;
+    }
+
+    .edu-thesis {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-weight: 300;
+      font-style: italic;
+      line-height: 1.65;
+      max-width: 52ch;
+      margin-top: 12px;
+      padding-left: 14px;
+      border-left: 2px solid var(--ochre-mid);
+    }
+
+    /* Publications */
+    .pub-list {
+      list-style: none;
+    }
+
+    .pub-list li {
+      padding: 1rem 0;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .pub-list li:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .pub-title {
+      font-size: 13.5px;
+      color: var(--text-mid);
+      font-weight: 300;
+      line-height: 1.6;
+    }
+
+    .pub-title a {
+      color: var(--text-mid);
+      border-bottom: 1px solid var(--border-mid);
+    }
+
+    .pub-title a:hover {
+      color: var(--ochre);
+      border-color: var(--ochre-mid);
+    }
+
+    .pub-meta {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      color: var(--ochre);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-top: 5px;
+    }
+
+    /* Research link */
+    .research-link {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ─── Responsive ─────────────────────────────────── */
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      .hero { padding: 2.5rem 0 2.5rem; }
+      .nav-links { gap: 1.25rem; }
+      .hero-links { gap: 1.25rem; }
+      main { padding: 2.25rem 0 4rem; }
+    }
+  </style>
 </head>
 <body>
 
-    <div class="top-nav-wrap">
-        <nav class="top-nav">
-            <a class="tab active" href="index.html">About Me</a>
-            <a class="tab" href="projects.html">Projects</a>
-        </nav>
+  <!-- Nav -->
+  <nav>
+    <div class="container">
+      <a class="nav-logo" href="index.html">AT</a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+      </ul>
     </div>
+  </nav>
 
-    <div class="page">
-        <aside class="sidebar">
-            <h1>Aycha Tammour, PhD</h1>
-            <p class="role">Senior Data Scientist <br> Machine Learning &amp; <br> Geospatial Analytics</p>
-
-            <section class="contact">
-                <h2>Contact</h2>
-                <ul>
-                    <li>
-                        <a class="contact-link" href="mailto:aycha.tammour@gmail.com">
-                            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M2 6.75A2.75 2.75 0 0 1 4.75 4h14.5A2.75 2.75 0 0 1 22 6.75v10.5A2.75 2.75 0 0 1 19.25 20H4.75A2.75 2.75 0 0 1 2 17.25V6.75Zm2.16-.05 7.34 5.38c.3.22.7.22 1 0l7.34-5.38a.75.75 0 0 0-.59-.2H4.75c-.22 0-.43.08-.59.2Zm16.34 1.55-7.11 5.22a2.35 2.35 0 0 1-2.78 0L3.5 8.25v9a1.25 1.25 0 0 0 1.25 1.25h14.5a1.25 1.25 0 0 0 1.25-1.25v-9Z"/>
-                            </svg>
-                            <span>Email</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="contact-link" href="https://github.com/astroAycha" target="_blank">
-                            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M12 .5C5.65.5.5 5.65.5 12.02c0 5.1 3.3 9.43 7.88 10.96.58.1.79-.25.79-.56 0-.28-.01-1.03-.02-2.02-3.21.7-3.89-1.55-3.89-1.55-.53-1.34-1.29-1.7-1.29-1.7-1.06-.72.08-.71.08-.71 1.17.08 1.79 1.21 1.79 1.21 1.04 1.78 2.72 1.26 3.38.96.11-.76.41-1.26.74-1.55-2.56-.29-5.25-1.28-5.25-5.71 0-1.26.45-2.29 1.19-3.09-.12-.29-.52-1.47.11-3.06 0 0 .97-.31 3.17 1.18a10.9 10.9 0 0 1 5.77 0c2.2-1.5 3.17-1.18 3.17-1.18.63 1.59.23 2.77.11 3.06.74.8 1.18 1.83 1.18 3.09 0 4.44-2.69 5.42-5.26 5.7.42.36.79 1.08.79 2.17 0 1.57-.01 2.83-.01 3.21 0 .31.21.67.8.56A11.53 11.53 0 0 0 23.5 12C23.5 5.65 18.35.5 12 .5Z"/>
-                            </svg>
-                            <span>GitHub</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a class="contact-link" href="https://www.linkedin.com/in/aychatammour/" target="_blank">
-                            <svg class="contact-icon" viewBox="0 0 24 24" aria-hidden="true">
-                                <path d="M4.98 3.5A2.48 2.48 0 1 0 5 8.46a2.48 2.48 0 0 0-.02-4.96ZM3 9.5h4v11H3v-11Zm7 0h3.84v1.5h.05c.53-1 1.83-2.05 3.76-2.05 4.02 0 4.76 2.64 4.76 6.07v5.48h-4v-4.86c0-1.16-.02-2.65-1.62-2.65-1.62 0-1.87 1.27-1.87 2.57v4.94h-3.92v-11Z"/>
-                            </svg>
-                            <span>LinkedIn</span>
-                        </a>
-                    </li>
-                </ul>
-            </section>
-        </aside>
-
-        <main class="content">
-
-    <p>I am a data scientist with a PhD in Astronomy and experience building time series forecasting, anomaly detection, and NLP solutions across multiple industries. My work spans developing end-to-end, large-scale time series forecasting pipelines, designing anomaly detection models for time series data, and building text analytics solutions. Across these projects, I work with a broad set of tools, including Python, SQL, Airflow, XGBoost, scikit-learn, and TensorFlow.</p>
-
-    <p>I am currently expanding my focus into GIS and remote sensing, with an interest in combining machine learning and geospatial data. I am adding more tools to my workflow, including GeoPandas, Shapely, Rasterio, Leafmap, QGIS, PostgreSQL (including PostGIS), DuckDB, and Google Earth Engine.</p>
-
-    <p>This portfolio is still a work in progress as I continue polishing and adding more projects.</p>
-
-    <p>Use the Projects tab above to explore geospatial work and demos.</p>
-
-    <hr>
-
-    <h2>Education</h2>
-    <p><strong>Western University</strong>, London, ON, Canada<br>
-    Astronomy, PhD - 2016</p>
-
-    <p><strong>Thesis:</strong> Insights from Unsupervised Clustering and Composite Spectral Analysis into the Physical Properties Driving Emission and Absorption in Quasar UV/Optical Spectra</p>
-
-    <p><strong>Peer-Reviewed Publications:</strong></p>
-    <ul>
-        <li><a href="https://academic.oup.com/mnras/article/448/4/3354/956083" target="_blank">Tracing quasar narrow-line regions across redshift: a library of high-S/N optical spectra</a>, Tammour, A. et al., 2016, Monthly Notices of the Royal Astronomical Society, 448, 3354</li>
-        <li><a href="https://academic.oup.com/mnras/article/459/2/1659/2594954" target="_blank">Insights into quasar UV spectra using unsupervised clustering analysis</a>, Tammour, A. et al., 2016, Monthly Notices of the Royal Astronomical Society, 459, 1659</li>
-    </ul>
-
-    <p>This page provides a quick summary of the research I did during my PhD using machine learning to analyze quasar Optical/UV spectra.</p>
-    <p><a href="research.html">Astro Research</a></p>
-
-        </main>
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <h1>Aycha<br><em>Tammour</em></h1>
+      <p class="hero-title">
+        Senior Data Scientist
+        <span class="sep">·</span>
+        Machine Learning
+        <span class="sep">·</span>
+        Geospatial Analytics
+      </p>
+      <ul class="hero-links">
+        <li><a href="mailto:aycha.tammour@gmail.com">Email</a></li>
+        <li><a href="https://github.com/astroAycha" target="_blank" rel="noopener">GitHub</a></li>
+        <li><a href="https://www.linkedin.com/in/aychatammour/" target="_blank" rel="noopener">LinkedIn</a></li>
+      </ul>
     </div>
+  </header>
 
+  <!-- Main -->
+  <main>
+    <div class="container">
+
+      <!-- Bio -->
+      <section class="section">
+        <p class="bio">
+          I am a data scientist with a PhD in Astronomy and experience building time series forecasting, anomaly detection, and NLP solutions across multiple industries. I am currently expanding my focus into GIS and remote sensing, combining machine learning with geospatial data.
+        </p>
+        <p class="bio" style="margin-top: 1rem;">
+          Use the Projects tab to explore geospatial work and demos.
+        </p>
+      </section>
+
+      <!-- Stack -->
+      <section class="section">
+        <p class="label">Stack</p>
+        <div class="tags">
+          <span class="tag">Python</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Airflow</span>
+          <span class="tag">XGBoost</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">TensorFlow</span>
+          <span class="tag">GeoPandas</span>
+          <span class="tag">Shapely</span>
+          <span class="tag">Rasterio</span>
+          <span class="tag">Leafmap</span>
+          <span class="tag">QGIS</span>
+          <span class="tag">PostGIS</span>
+          <span class="tag">DuckDB</span>
+          <span class="tag">Google Earth Engine</span>
+        </div>
+      </section>
+
+      <!-- Education -->
+      <section class="section">
+        <p class="label">Education</p>
+        <p class="edu-inst">Western University</p>
+        <p class="edu-degree">PhD, Astronomy &nbsp;·&nbsp; London, ON, Canada &nbsp;·&nbsp; 2016</p>
+        <p class="edu-thesis">
+          Insights from Unsupervised Clustering and Composite Spectral Analysis into the Physical Properties Driving Emission and Absorption in Quasar UV/Optical Spectra
+        </p>
+      </section>
+
+      <!-- Publications -->
+      <section class="section">
+        <p class="label">Peer-Reviewed Publications</p>
+        <ul class="pub-list">
+          <li>
+            <p class="pub-title">
+              <a href="https://academic.oup.com/mnras/article/448/4/3354/956083" target="_blank" rel="noopener">
+                Tracing quasar narrow-line regions across redshift: a library of high-S/N optical spectra
+              </a>
+            </p>
+            <p class="pub-meta">Tammour, A. et al. &nbsp;·&nbsp; MNRAS &nbsp;·&nbsp; 2016 &nbsp;·&nbsp; 448, 3354</p>
+          </li>
+          <li>
+            <p class="pub-title">
+              <a href="https://academic.oup.com/mnras/article/459/2/1659/2594954" target="_blank" rel="noopener">
+                Insights into quasar UV spectra using unsupervised clustering analysis
+              </a>
+            </p>
+            <p class="pub-meta">Tammour, A. et al. &nbsp;·&nbsp; MNRAS &nbsp;·&nbsp; 2016 &nbsp;·&nbsp; 459, 1659</p>
+          </li>
+        </ul>
+      </section>
+
+      <!-- Astro research link -->
+      <section class="section">
+        <p class="label">Astro Research</p>
+        <p class="bio" style="margin-bottom: 1rem;">
+          A summary of the research conducted during my PhD using machine learning to analyze quasar optical/UV spectra.
+        </p>
+        <a class="research-link" href="research.html">View research →</a>
+      </section>
+
+    </div>
+  </main>
 
 </body>
 </html>
