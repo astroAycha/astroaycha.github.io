@@ -215,6 +215,25 @@
       margin-bottom: 1.1rem;
     }
 
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 1.1rem;
+    }
+
+    .project-tag {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.02em;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 0.5px solid var(--border-mid);
+      border-radius: 2px;
+      padding: 4px 9px;
+      text-transform: uppercase;
+    }
+
     .project-link {
       font-family: var(--font-mono);
       font-size: 10px;
@@ -299,11 +318,19 @@
             <p class="project-category">MLOps · Geospatial</p>
             <h2 class="project-title">Geospatial MLOps</h2>
             <p class="project-desc">An end-to-end geospatial machine learning workflow focused on reproducibility, pipeline structure, and scalable model development practices.</p>
-                <div class="project-links">
-                  <a class="project-link" href="https://github.com/astroAycha/geospatial_mlops" target="_blank" rel="noopener">View repository →</a>
-                  <a class="project-link" href="https://environmental-change-monitoring.streamlit.app" target="_blank" rel="noopener">View Streamlit app →</a>
-                  <a class="project-link" href="forecast_chart.html" target="_blank" rel="noopener">Open forecast animation in new window →</a>
-                </div>            <div class="project-embed">
+            <div class="project-tags">
+              <span class="project-tag">py-stac</span>
+              <span class="project-tag">Xarray</span>
+              <span class="project-tag">SuckDB</span>
+              <span class="project-tag">AWS</span>
+              <span class="project-tag">MLflow</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/astroAycha/geospatial_mlops" target="_blank" rel="noopener">View repository →</a>
+              <a class="project-link" href="https://environmental-change-monitoring.streamlit.app" target="_blank" rel="noopener">View Streamlit app →</a>
+              <a class="project-link" href="forecast_chart.html" target="_blank" rel="noopener">Open forecast animation in new window →</a>
+            </div>
+            <div class="project-embed">
               <iframe
                 src="forecast_chart.html"
                 title="Forecast Chart"
@@ -321,6 +348,13 @@
             <p class="project-desc">This project focuses on analyzing and visualizing PM2.5 air pollution data in the Greater Toronto Area (GTA).
               The data is displayed through an interactive dashboard built with Hugging Face Spaces.
             </p>
+            <div class="project-tags">
+              <span class="project-tag">Dash</span>
+              <span class="project-tag">AWS</span>
+              <span class="project-tag">Hugging Face Spaces</span>
+              <span class="project-tag">DuckDB</span>
+              <span class="project-tag">Plotly</span>
+            </div>
             <div class="project-links">
               <a class="project-link" href="https://github.com/astroAycha/gta_air_quality" target="_blank" rel="noopener">View repository →</a>
               <a class="project-link" href="pm25_gta_animation.html">View PM2.5 animation →</a>
