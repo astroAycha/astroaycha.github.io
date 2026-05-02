@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Aycha Tammour, PhD | Writing</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@400;500&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:        #0a192f;
+      --bg-subtle: #112240;
+      --border:    #233554;
+      --border-mid:#2c3e50;
+      --text:      #e0e6ed;
+      --text-mid:  #c5d1e0;
+      --text-muted:#a8b8d1;
+      --text-dim:  #7a8ca5;
+      --ochre:     #4db5ff;
+      --ochre-mid: #82cfff;
+      --ochre-bg:  #0a192f;
+      --font-sans: 'DM Sans', sans-serif;
+      --font-serif:'DM Serif Display', serif;
+      --font-mono: 'DM Mono', monospace;
+    }
+
+    html { font-size: 16px; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: var(--ochre);
+      text-decoration: none;
+      border-bottom: 1px solid var(--ochre-mid);
+      padding-bottom: 1px;
+      transition: color 0.15s, border-color 0.15s;
+    }
+
+    a:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    .container {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    nav {
+      border-bottom: 0.5px solid var(--border);
+      padding: 1.25rem 0;
+    }
+
+    nav .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .nav-logo {
+      font-family: var(--font-mono);
+      font-size: 11px;
+      font-weight: 500;
+      letter-spacing: 0.14em;
+      color: var(--ochre);
+      text-transform: uppercase;
+      border: none;
+      padding: 0;
+    }
+
+    .nav-logo:hover {
+      color: var(--ochre);
+      border: none;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 13px;
+      color: var(--text-dim);
+      border: none;
+      padding: 0;
+      letter-spacing: 0.02em;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--text);
+      border-bottom: 1px solid var(--ochre);
+      padding-bottom: 1px;
+    }
+
+    .hero {
+      padding: 4rem 0 3.5rem;
+      border-bottom: 0.5px solid var(--border);
+    }
+
+    .hero-eyebrow {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--ochre);
+      text-transform: uppercase;
+      margin-bottom: 1.1rem;
+    }
+
+    .hero h1 {
+      font-family: var(--font-serif);
+      font-size: clamp(36px, 6vw, 48px);
+      line-height: 1.1;
+      font-weight: 400;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 em {
+      color: var(--text-muted);
+      font-style: italic;
+    }
+
+    .hero-intro {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: var(--text-mid);
+      font-weight: 300;
+      max-width: 56ch;
+    }
+
+    main {
+      padding: 3rem 0 5rem;
+    }
+
+    .label {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.18em;
+      color: var(--ochre);
+      text-transform: uppercase;
+      margin-bottom: 2rem;
+    }
+
+    .post-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .post-item {
+      padding: 2rem 0;
+      border-top: 0.5px solid var(--border);
+    }
+
+    .post-item:first-child {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .post-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      margin-bottom: 0.75rem;
+      flex-wrap: wrap;
+    }
+
+    .post-date {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--text-muted);
+      text-transform: uppercase;
+    }
+
+    .post-tags {
+      display: flex;
+      gap: 0.45rem;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-family: var(--font-mono);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      background: var(--bg-subtle);
+      border: 0.5px solid var(--border-mid);
+      border-radius: 2px;
+      padding: 4px 8px;
+    }
+
+    .post-title {
+      font-family: var(--font-serif);
+      font-size: 24px;
+      line-height: 1.2;
+      font-weight: 400;
+      margin-bottom: 0.7rem;
+      color: var(--text);
+    }
+
+    .post-title a {
+      color: inherit;
+      border-bottom: none;
+    }
+
+    .post-title a:hover {
+      color: var(--ochre);
+    }
+
+    .post-excerpt {
+      font-size: 13.5px;
+      line-height: 1.75;
+      color: var(--text-mid);
+      font-weight: 300;
+      max-width: 56ch;
+      margin-bottom: 1.1rem;
+    }
+
+    .post-footer {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .read-link,
+    .github-link {
+      font-family: var(--font-mono);
+      font-size: 10px;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .github-link {
+      color: var(--text-muted);
+      border-bottom-color: var(--border-mid);
+    }
+
+    .github-link:hover {
+      color: var(--text);
+      border-color: var(--text);
+    }
+
+    @media (max-width: 600px) {
+      .container { padding: 0 1.25rem; }
+      .hero { padding: 2.5rem 0; }
+      .nav-links { gap: 1.25rem; }
+      main { padding: 2.25rem 0 4rem; }
+      .post-title { font-size: 22px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="container">
+      <a class="nav-logo" href="index.html">AT</a>
+      <ul class="nav-links">
+        <li><a href="index.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="writing.html" class="active">Writing</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="hero">
+    <div class="container">
+      <p class="hero-eyebrow">Notes</p>
+      <h1>Technical <em>Writing</em></h1>
+      <p class="hero-intro">
+        Technical notes and project write-ups on machine learning, geospatial analytics, and data science workflows.
+      </p>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <p class="label">Latest Posts</p>
+      <ul class="post-list">
+        <li class="post-item">
+          <div class="post-meta">
+            <span class="post-date">2026-04-19</span>
+            <div class="post-tags">
+              <span class="tag">Geospatial</span>
+              <span class="tag">Time Series</span>
+              <span class="tag">MLOps</span>
+            </div>
+          </div>
+          <h2 class="post-title">
+            <span>Building a Reproducible Geospatial ML Pipeline</span>
+            <span style="font-size: 12px; color: var(--text-muted); font-style: italic;"> (In Preparation)</span>
+          </h2>
+          <p class="post-excerpt">
+          A walkthrough of structuring an end-to-end geospatial machine learning 
+          workflow, from data ingestion using STAC and Xarray to time series 
+          forecasting and experiment tracking with MLflow, with a focus on 
+          efficiency and reproducibility.          </p>
+          <div class="post-footer">
+            <span class="read-link" style="color: var(--text-muted); cursor: not-allowed;">Read Article</span>
+            <a href="https://github.com/astroAycha/geospatial_mlops" class="github-link" target="_blank" rel="noopener">View Repository</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </main>
+
+</body>
+</html>
