@@ -317,13 +317,9 @@
           <div>
             <p class="project-category">MLOps · Geospatial</p>
             <h2 class="project-title">Geospatial MLOps</h2>
-            <p class="project-desc">A production-oriented geospatial MLOps pipeline for large-scale extraction and modeling of satellite-derived time series from Sentinel-2 and Harmonized Landsat-Sentinel (HLS) imagery. The workflow leverages STAC APIs for spatiotemporal asset indexing and discovery, coupled with Open Data Cube for efficient data cube construction, tiling, and on-demand access to analysis-ready data (ARD). Feature engineering includes temporal aggregation, gap-filling, and spectral index derivation to generate structured inputs for downstream modeling.
-
-Model development is built around gradient boosting frameworks such as XGBoost, optimized for tabular time series forecasting with cross-validation and hyperparameter tuning. The pipeline incorporates experiment tracking, model versioning, and reproducibility using MLflow, enabling systematic comparison of runs and deployment-ready artifacts. Outputs are operationalized through lightweight data applications built with Streamlit, providing dynamic visualization of spatiotemporal predictions and model diagnostics.
-            </p>
+            <p class="project-desc">An end-to-end geospatial machine learning pipeline focused on reproducibility, modular pipeline design, and scalable model development. The project leverages cloud-native workflows to efficiently extract spectral indices from satellite data (Sentinel-2 and Harmonized Landsat-Sentinel), transforming them into structured time series for downstream analysis. These features are then used to build forecasting models using XGBoost, enabling robust temporal predictions from large-scale remote sensing data.
                 <div class="project-links">
                   <a class="project-link" href="https://github.com/astroAycha/geospatial_mlops" target="_blank" rel="noopener">View repository →</a>
-                  <a class="project-link" href="https://environmental-change-monitoring.streamlit.app" target="_blank" rel="noopener">View Streamlit app →</a>
                   <a class="project-link" href="forecast_chart.html" target="_blank" rel="noopener">Open forecast animation in new window →</a>
                 </div>            <div class="project-embed">
               <iframe
