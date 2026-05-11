@@ -272,6 +272,15 @@
       background: #fff;
     }
 
+    .project-embed img {
+      display: block;
+      width: 100%;
+      height: auto;
+      border: none;
+      background: #fff;
+      cursor: pointer;
+    }
+
     /* ─── Responsive ─────────────────────────────────── */
     @media (max-width: 600px) {
       .container { padding: 0 1.25rem; }
@@ -320,14 +329,14 @@
             <p class="project-desc">An end-to-end geospatial machine learning pipeline focused on reproducibility, modular pipeline design, and scalable model development. The project leverages cloud-native workflows to efficiently extract spectral indices from satellite data (Sentinel-2 and Harmonized Landsat-Sentinel), transforming them into structured time series for downstream analysis. These features are then used to build forecasting models using XGBoost, enabling robust temporal predictions from large-scale remote sensing data.
                 <div class="project-links">
                   <a class="project-link" href="https://github.com/astroAycha/geospatial_mlops" target="_blank" rel="noopener">View repository →</a>
-                  <a class="project-link" href="forecast_chart.html" target="_blank" rel="noopener">Open forecast animation in new window →</a>
+                  <a class="project-link" href="https://huggingface.co/spaces/astroAycha/environment_monitor" target="_blank" rel="noopener">View live dashboard on Hugging Face Spaces →</a>
                 </div>            <div class="project-embed">
-              <iframe
-                src="forecast_chart.html"
-                title="Forecast Chart"
-                loading="lazy"
-                allowfullscreen>
-              </iframe>
+              <a href="https://huggingface.co/spaces/astroAycha/environment_monitor" target="_blank" rel="noopener">
+                <img
+                  src="images/atamah_dashboard.png"
+                  alt="Geospatial MLOps Dashboard"
+                  loading="lazy">
+              </a>
             </div>
           </div>
         </div>
