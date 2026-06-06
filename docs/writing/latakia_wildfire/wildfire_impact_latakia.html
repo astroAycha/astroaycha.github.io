@@ -263,12 +263,15 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
-  <li><a href="#wildfire-impact-analysis-using-satellite-imagery" id="toc-wildfire-impact-analysis-using-satellite-imagery" class="nav-link active" data-scroll-target="#wildfire-impact-analysis-using-satellite-imagery">Wildfire Impact Analysis Using Satellite Imagery</a></li>
-  <li><a href="#the-study-area" id="toc-the-study-area" class="nav-link" data-scroll-target="#the-study-area">The Study Area</a>
+  <li><a href="#wildfire-impact-analysis-using-satellite-imagery" id="toc-wildfire-impact-analysis-using-satellite-imagery" class="nav-link active" data-scroll-target="#wildfire-impact-analysis-using-satellite-imagery">Wildfire Impact Analysis Using Satellite Imagery</a>
   <ul>
+  <li><a href="#the-study-area" id="toc-the-study-area" class="nav-link" data-scroll-target="#the-study-area">The Study Area</a></li>
   <li><a href="#wildfire-event-timing" id="toc-wildfire-event-timing" class="nav-link" data-scroll-target="#wildfire-event-timing">Wildfire Event Timing</a>
   <ul class="collapse">
   <li><a href="#fetching-fire-data-from-firms" id="toc-fetching-fire-data-from-firms" class="nav-link" data-scroll-target="#fetching-fire-data-from-firms">Fetching Fire Data from FIRMS</a></li>
+  </ul></li>
+  <li><a href="#data-acquisition" id="toc-data-acquisition" class="nav-link" data-scroll-target="#data-acquisition">Data Acquisition</a>
+  <ul class="collapse">
   <li><a href="#searching-and-loading-data-via-stac" id="toc-searching-and-loading-data-via-stac" class="nav-link" data-scroll-target="#searching-and-loading-data-via-stac">1 - Searching and Loading Data via STAC</a></li>
   <li><a href="#pre-processing-the-data" id="toc-pre-processing-the-data" class="nav-link" data-scroll-target="#pre-processing-the-data">2 - Pre-processing the Data</a></li>
   <li><a href="#calculating-spectral-indices" id="toc-calculating-spectral-indices" class="nav-link" data-scroll-target="#calculating-spectral-indices">3- Calculating Spectral Indices</a></li>
@@ -287,7 +290,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#summary-conclusion" id="toc-summary-conclusion" class="nav-link" data-scroll-target="#summary-conclusion">Summary &amp; Conclusion</a></li>
   <li><a href="#limitations" id="toc-limitations" class="nav-link" data-scroll-target="#limitations">Limitations</a></li>
-  <li><a href="#useful-resources" id="toc-useful-resources" class="nav-link" data-scroll-target="#useful-resources">Useful Resources</a></li>
+  <li><a href="#useful-links" id="toc-useful-links" class="nav-link" data-scroll-target="#useful-links">Useful Links</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -593,9 +596,8 @@ document.getElementById('download-link').addEventListener('click', function(e) {
 </table>
 <p>Throught this workflow, imports are introduced where first used for clarity and to avoid overwhelming the reader with a long list of imports at the beginning. The workflow is structured in a way that allows readers to follow along step by step, with explanations provided for each major section of code.</p>
 <p>I put links to the code used in this workflow in the relevant sections, but you can also find the full code in this <a href="https://github.com/astroAycha/wildfire_impact_analysis/tree/main">GitHub repository</a>.</p>
-</section>
-<section id="the-study-area" class="level1">
-<h1>The Study Area</h1>
+<section id="the-study-area" class="level2">
+<h2 class="anchored" data-anchor-id="the-study-area">The Study Area</h2>
 <p>Our study area is a mountainous region in Northwest Syria centered around Qastal Maaf, a small town near Latakia in Syria, which has been impacted by a devastating wildfire in the summer of 2025. Let’s start by defining the area of interest (AOI). We will use this AOI to query and extract satellite imagery for our analysis.</p>
 <div id="216cb603" class="cell" data-execution_count="1">
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> shapely.geometry <span class="im">import</span> box</span>
@@ -620,6 +622,7 @@ document.getElementById('download-link').addEventListener('click', function(e) {
 <pre><code>AOI area: 63.949 km²</code></pre>
 </div>
 </div>
+</section>
 <section id="wildfire-event-timing" class="level2">
 <h2 class="anchored" data-anchor-id="wildfire-event-timing">Wildfire Event Timing</h2>
 <p>As I mentioned earlier, the wildfire event occurred in the summer of 2025. To find out when exactly it happened, we can use NASA’s Fire Information for Resource Management System (FIRMS) to check the specific dates on which FIRMS detected active fires. FIRMS provides global near real-time (NRT) and historical active fire data from MODIS and VIIRS instruments. By accessing the FIRMS data for our AOI, we can identify the date of the fire event and use that information to analyze the satellite imagery before and after the fire.</p>
@@ -13535,11 +13538,13 @@ Data is available for the dates: 2025-07-09 -&gt; 2025-07-11</code></pre>
 </html>" style="position:absolute;width:100%;height:100%;left:0;top:0;border:none !important;" allowfullscreen="" webkitallowfullscreen="" mozallowfullscreen=""></iframe></div></div>
 </div>
 </div>
-<!-- ## Data Acquisition -->
+</section>
+</section>
+<section id="data-acquisition" class="level2">
+<h2 class="anchored" data-anchor-id="data-acquisition">Data Acquisition</h2>
 <p>Now, we need to acquire the satellite imagery for our AOI and time period of interest. We will use the Sentinel-2 data, which provides high resolution multispectral imagery that can be used to calculate various spectral indices for analyzing vegetation health and moisture content. There are multiple ways to access Sentinel-2 data, including using the Copernicus Open Access Hub, Google Earth Engine, or using STAC APIs. For this walkthrough, I will demonstrate how to use the <code>pystac</code> library to access Sentinel-2 data through a STAC API. This approach allows for efficient querying and retrieval of satellite imagery based on our AOI and time period, and it can be easily automated for reproducibility.</p>
 <p>The workflow is applied to an AOI in Latakia, Syria, but the overall approach can be adapted to other regions and time periods as needed. The key steps include: 1. Defining the AOI and time period for analysis 2. Querying and retrieving satellite imagery using the STAC API 3. Processing the imagery to mask clouds and calculate spectral indices</p>
 <p>The full <code>BuildS2TimeSeries</code> class is available on <a href="https://github.com/astroAycha/wildfire_impact_analysis/blob/main/build_s2_timeseries.py">GitHub</a>, but let’s walk through the three core methods that do the heavy lifting.</p>
-</section>
 <section id="searching-and-loading-data-via-stac" class="level3">
 <h3 class="anchored" data-anchor-id="searching-and-loading-data-via-stac">1 - Searching and Loading Data via STAC</h3>
 <p>The STAC search is straightforward. We want to search the Sentinel-2 L2A collection <code>sentinel-2-l2a</code> (which is hosted on AWS) for items that intersect the AOI and match the date range and cloud cover criteria.</p>
@@ -16302,8 +16307,8 @@ weighted avg       0.90      0.89      0.89    159844
 </ul>
 <p>If you made it this far, thank you for reading! I hope you found this workflow useful and informative. If you have any questions or feedback, please feel free to <a href="https://aychatammour.com">reach out to me</a>.</p>
 </section>
-<section id="useful-resources" class="level2">
-<h2 class="anchored" data-anchor-id="useful-resources">Useful Resources</h2>
+<section id="useful-links" class="level2">
+<h2 class="anchored" data-anchor-id="useful-links">Useful Links</h2>
 <ul>
 <li><a href="https://element84.com/earth-search">Earth Search API</a></li>
 <li><a href="https://registry.opendata.aws/sentinel-2/">Sentinel-2 L2A data on AWS</a></li>
