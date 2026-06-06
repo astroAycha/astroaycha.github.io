@@ -6,20 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<p style="margin: 2rem 1.25rem 0 1.25rem;">
-  <a 
-    href="https://aychatammour.com/writing.html"
-    style="
-      text-decoration: none;
-      font-weight: 500;
-      color: #2563eb;
-    "
-  >
-    ← Back to Writing
-  </a>
-</p>
 
-<title>Wildfire Impact Analysis Using Satellite Imagery</title>
+<title>wildfire_impact_latakia</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -80,18 +68,194 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="wildfire_impact_latakia_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="wildfire_impact_latakia_files/libs/quarto-html/anchor.min.js"></script>
 <link href="wildfire_impact_latakia_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="wildfire_impact_latakia_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="wildfire_impact_latakia_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="wildfire_impact_latakia_files/libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="wildfire_impact_latakia_files/libs/quarto-html/quarto-syntax-highlighting-7f8f88aac4f3542376d5c11b86a4c14d.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
 <script src="wildfire_impact_latakia_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="wildfire_impact_latakia_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="wildfire_impact_latakia_files/libs/bootstrap/bootstrap-efbb37e9afcc02144ebbc7afd12a776f.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="wildfire_impact_latakia_files/libs/bootstrap/bootstrap-293cc809d15782442e9b1098eedb6797.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="wildfire_impact_latakia_files/libs/bootstrap/bootstrap-dark-7b2b20282c8da1075b52e56187ace71c.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="wildfire_impact_latakia_files/libs/bootstrap/bootstrap-293cc809d15782442e9b1098eedb6797.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script src="https://cdn.jsdelivr.net/npm/requirejs@2.3.6/require.min.js" integrity="sha384-c9c+LnTbwQ3aujuU7ULEPVvgLs+Fn6fJUvIGTsuu1ZcCf11fiEubah0ttpca4ntM sha384-6V1/AdqZRWk1KAlWbKBlGhN7VG4iE/yAZcO6NZPMF8od0vukrvr0tg4qY6NSrItx" crossorigin="anonymous"></script>
 
 <script type="application/javascript">define('jquery', [],function() {return window.jQuery;})</script>
 
 
+<link rel="stylesheet" href="includes/tutorial-banner.css">
 </head>
 
-<body class="quarto-light">
+<body class="quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const queryPrefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    const darkModeDefault = queryPrefersDark.matches;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    queryPrefersDark.addEventListener("change", e => {
+      if(window.localStorage.getItem("quarto-color-scheme") !== null)
+        return;
+      const alternate = e.matches
+      toggleColorMode(alternate);
+      localAlternateSentinel = e.matches ? 'alternate' : 'default'; // this is used alongside local storage!
+      toggleGiscusIfUsed(alternate, darkModeDefault);
+    });
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
 
 <div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
 <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -99,7 +263,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of Contents</h2>
    
   <ul>
-  <li><a href="#the-study-area" id="toc-the-study-area" class="nav-link active" data-scroll-target="#the-study-area">The Study Area</a>
+  <li><a href="#wildfire-impact-analysis-using-satellite-imagery" id="toc-wildfire-impact-analysis-using-satellite-imagery" class="nav-link active" data-scroll-target="#wildfire-impact-analysis-using-satellite-imagery">Wildfire Impact Analysis Using Satellite Imagery</a></li>
+  <li><a href="#the-study-area" id="toc-the-study-area" class="nav-link" data-scroll-target="#the-study-area">The Study Area</a>
   <ul>
   <li><a href="#wildfire-event-timing" id="toc-wildfire-event-timing" class="nav-link" data-scroll-target="#wildfire-event-timing">Wildfire Event Timing</a>
   <ul class="collapse">
@@ -129,25 +294,243 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default">
-<div class="quarto-title">
-<h1 class="title">Wildfire Impact Analysis Using Satellite Imagery</h1>
+<div class="tutorial-banner">
+
+  <span>
+
+    <i class="bi bi-journal-text"></i>
+
+    Explore the project:
+
+  </span>
+
+
+
+  <a id="github-link" href="https://github.com/astroAycha/wildfire_impact_analysis" target="_blank" rel="noopener noreferrer">
+
+    <i class="bi bi-github"></i>
+
+    View Source on GitHub
+
+  </a>
+
+
+
+  <span class="separator">·</span>
+
+
+
+  <a id="download-link" href="#" rel="noopener noreferrer">
+
+    <i class="bi bi-download"></i>
+
+    Download Notebook
+
+  </a>
+
+
+
+  <span class="separator">·</span>
+
+
+
+  <button id="theme-toggle" class="theme-toggle" aria-label="Toggle dark/light mode">
+
+    <i class="bi bi-moon-stars-fill" id="theme-icon"></i>
+
+    <span id="theme-label">Dark mode</span>
+
+  </button>
+
 </div>
 
 
 
-<div class="quarto-title-meta">
+<script>
 
-    
-  
-    
-  </div>
-  
+(function() {
+
+  var btn = document.getElementById('theme-toggle');
+
+  var icon = document.getElementById('theme-icon');
+
+  var label = document.getElementById('theme-label');
 
 
-</header>
+
+  function isDark() {
+
+    // Quarto may signal dark mode via data-bs-theme attribute or a body class
+
+    return document.documentElement.getAttribute('data-bs-theme') === 'dark'
+
+      || document.body.classList.contains('quarto-dark');
+
+  }
 
 
+
+  function syncTheme() {
+
+    if (isDark()) {
+
+      icon.className = 'bi bi-sun-fill';
+
+      label.textContent = 'Light mode';
+
+    } else {
+
+      icon.className = 'bi bi-moon-stars-fill';
+
+      label.textContent = 'Dark mode';
+
+    }
+
+  }
+
+
+
+  btn.addEventListener('click', function() {
+
+    // Try Quarto's built-in toggle first
+
+    var quartoBtn = document.querySelector('.quarto-color-scheme-toggle');
+
+    if (quartoBtn) {
+
+      quartoBtn.click();
+
+    } else {
+
+      // Fallback: toggle data-bs-theme directly
+
+      var next = isDark() ? 'light' : 'dark';
+
+      document.documentElement.setAttribute('data-bs-theme', next);
+
+    }
+
+    // Sync after a short delay to let Quarto apply the change
+
+    setTimeout(syncTheme, 100);
+
+  });
+
+
+
+  // Sync whenever Quarto changes the attribute or body class
+
+  var observer = new MutationObserver(syncTheme);
+
+  function startObserving() {
+
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-bs-theme', 'class'] });
+
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+
+    syncTheme();
+
+  }
+
+
+
+  if (document.readyState === 'loading') {
+
+    document.addEventListener('DOMContentLoaded', startObserving);
+
+  } else {
+
+    startObserving();
+
+  }
+
+})();
+
+
+
+document.getElementById('download-link').addEventListener('click', function(e) {
+
+  e.preventDefault();
+
+  fetch('https://raw.githubusercontent.com/astroAycha/wildfire_impact_analysis/main/wildfire_impact_latakia.ipynb')
+
+    .then(function(r) { return r.blob(); })
+
+    .then(function(blob) {
+
+      var url = URL.createObjectURL(blob);
+
+      var a = document.createElement('a');
+
+      a.href = url;
+
+      a.download = 'wildfire_impact_latakia.ipynb';
+
+      document.body.appendChild(a);
+
+      a.click();
+
+      document.body.removeChild(a);
+
+      URL.revokeObjectURL(url);
+
+    });
+
+});
+
+</script>
+
+
+
+<a id="back-to-main" href="https://your-site.com/main-writing-page.html">
+
+  <i class="bi bi-arrow-left"></i>
+
+  Back to main writing page
+
+</a>
+
+
+
+<script>
+
+(function () {
+
+  var back = document.getElementById('back-to-main');
+
+  if (!back) return;
+
+
+
+  try {
+
+    if (document.referrer) {
+
+      var ref = new URL(document.referrer);
+
+      if (ref.origin === window.location.origin) {
+
+        back.href = document.referrer;
+
+      }
+
+    }
+
+  } catch (_) {
+
+    // Keep canonical fallback href
+
+  }
+
+})();
+
+</script>
+
+
+
+
+<section id="wildfire-impact-analysis-using-satellite-imagery" class="level1">
+<h1>Wildfire Impact Analysis Using Satellite Imagery</h1>
 <p>By Aycha Tammour</p>
 <p>Wildfires affect ecosystems, infrastructure, air quality, and local economies. Satellite imagery provides a scalable way to assess impacts in regions where field surveys may be expensive, dangerous, or impossible. This workflow demonstrates how open Earth observation data can be used to rapidly estimate wildfire damage. I use a wildfire event in Northwest Syria as a case study, where I examine changes in vegetation health and moisture content before and after the fire.</p>
 <p>This workflow uses a fully Python-based pipeline leveraging STAC for cloud-native data access, xarray/Dask for scalable processing, and scikit-learn for validation.</p>
@@ -210,6 +593,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 <p>Throught this workflow, imports are introduced where first used for clarity and to avoid overwhelming the reader with a long list of imports at the beginning. The workflow is structured in a way that allows readers to follow along step by step, with explanations provided for each major section of code.</p>
 <p>I put links to the code used in this workflow in the relevant sections, but you can also find the full code in this <a href="https://github.com/astroAycha/wildfire_impact_analysis/tree/main">GitHub repository</a>.</p>
+</section>
 <section id="the-study-area" class="level1">
 <h1>The Study Area</h1>
 <p>Our study area is a mountainous region in Northwest Syria centered around Qastal Maaf, a small town near Latakia in Syria, which has been impacted by a devastating wildfire in the summer of 2025. Let’s start by defining the area of interest (AOI). We will use this AOI to query and extract satellite imagery for our analysis.</p>
@@ -15894,7 +16278,17 @@ weighted avg       0.90      0.89      0.89    159844
 </tr>
 </tbody>
 </table>
-<p>Here is a quick summary of the key steps in the workflow: 1. Define the area of interest (AOI) and time period for analysis. 2. Retrieve fire data from FIRMS to identify the timing of the wildfire event. 3. Use the STAC API to search for and load Sentinel-2 imagery for the AOI and time period of interest. 4. Pre-process the imagery by applying cloud masks using the SCL band to remove cloud-contaminated pixels. 5. Calculate spectral indices (NDVI, NBR, NDMI) to assess vegetation health and moisture content. 6. Analyze the spectral indices to identify changes before and after the fire event. 7. Calculate the change in NBR (dNBR) to estimate burn severity. 8. Validate the burn severity estimates by comparing them with the Copernicus EMS assessment for the same area and time period.</p>
+<p>Here is a quick summary of the key steps in the workflow:</p>
+<ol type="1">
+<li>Define the area of interest (AOI) and time period for analysis.</li>
+<li>Retrieve fire data from FIRMS to identify the timing of the wildfire event.</li>
+<li>Use the STAC API to search for and load Sentinel-2 imagery for the AOI and time period of interest.</li>
+<li>Pre-process the imagery by applying cloud masks using the SCL band to remove cloud-contaminated pixels.</li>
+<li>Calculate spectral indices (NDVI, NBR, NDMI) to assess vegetation health and moisture content.</li>
+<li>Analyze the spectral indices to identify changes before and after the fire event.</li>
+<li>Calculate the change in NBR (dNBR) to estimate burn severity.</li>
+<li>Validate the burn severity estimates by comparing them with the Copernicus EMS assessment for the same area and time period.</li>
+</ol>
 </section>
 <section id="limitations" class="level2">
 <h2 class="anchored" data-anchor-id="limitations">Limitations</h2>
@@ -15932,6 +16326,19 @@ weighted avg       0.90      0.89      0.89    159844
 <!-- /main column -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
