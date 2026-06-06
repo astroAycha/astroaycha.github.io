@@ -56,7 +56,7 @@
 
     /* ─── Layout ─────────────────────────────────────── */
     .container {
-      max-width: 720px;
+      max-width: 840px;
       margin: 0 auto;
       padding: 0 2rem;
     }
@@ -211,7 +211,6 @@
       line-height: 1.75;
       color: var(--text-mid);
       font-weight: 300;
-      max-width: 50ch;
       margin-bottom: 1.1rem;
     }
 
@@ -272,6 +271,10 @@
       background: #fff;
     }
 
+    .project-embed--tall iframe {
+      height: 680px;
+    }
+
     .project-embed img {
       display: block;
       width: 100%;
@@ -325,18 +328,69 @@
         <div class="project">
           <div>
             <p class="project-category">MLOps · Geospatial</p>
-            <h2 class="project-title">Geospatial MLOps</h2>
-            <p class="project-desc">An end-to-end geospatial machine learning pipeline focused on reproducibility, modular pipeline design, and scalable model development. The project leverages cloud-native workflows to efficiently extract spectral indices from satellite data (Sentinel-2 and Harmonized Landsat-Sentinel), transforming them into structured time series for downstream analysis. These features are then used to build forecasting models using XGBoost, enabling robust temporal predictions from large-scale remote sensing data.
-                <div class="project-links">
-                  <a class="project-link" href="https://github.com/astroAycha/geospatial_mlops" target="_blank" rel="noopener">View repository →</a>
-                  <a class="project-link" href="https://huggingface.co/spaces/astroAycha/environment_monitor" target="_blank" rel="noopener">View live dashboard on Hugging Face Spaces →</a>
-                </div>            <div class="project-embed">
+            <h2 class="project-title">Environmental Monitor</h2>
+            <p class="project-desc">An end-to-end geospatial machine learning pipeline focused on reproducibility, modular pipeline design, and scalable model development. The project leverages cloud-native workflows to efficiently extract spectral indices from satellite data (Sentinel-2 and Harmonized Landsat-Sentinel), transforming them into structured time series for downstream analysis. These features are then used to build forecasting models using XGBoost, enabling robust temporal predictions from large-scale remote sensing data.</p>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/astroAycha/geospatial_mlops" target="_blank" rel="noopener">View repository →</a>
+              <a class="project-link" href="https://huggingface.co/spaces/astroAycha/environment_monitor" target="_blank" rel="noopener">View live dashboard on Hugging Face Spaces →</a>
+            </div>
+            <div class="project-embed">
               <a href="https://huggingface.co/spaces/astroAycha/environment_monitor" target="_blank" rel="noopener">
                 <img
                   src="images/atamah_dashboard.png"
                   alt="Geospatial MLOps Dashboard"
                   loading="lazy">
               </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div>
+            <p class="project-category">Geospatial · Remote Sensing</p>
+            <h2 class="project-title">Wildfire Impact Analysis Using Satellite Imagery</h2>
+            <p class="project-desc">A case study on wildfire impacts in Syria that combines satellite imagery, burn severity analysis, and geospatial visualization to track landscape change after the fire event.</p>
+            <div class="project-tags">
+              <span class="project-tag">Remote Sensing</span>
+              <span class="project-tag">Satellite Imagery</span>
+              <span class="project-tag">Geospatial Analysis</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/astroAycha/wildfire_impact_analysis" target="_blank" rel="noopener">View repository →</a>
+              <a class="project-link" href="writing/latakia_wildfire/wildfire_impact_latakia.html">View writeup →</a>
+            </div>
+            <div class="project-embed project-embed--tall">
+              <iframe
+                src="writing/latakia_wildfire/maps/comparison_map.html"
+                title="Wildfire comparison map"
+                loading="lazy"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </div>
+
+        <div class="project">
+          <div>
+            <p class="project-category">Geospatial · Cloud-Native</p>
+            <h2 class="project-title">Production-Ready Terrain Analysis at Scale: A Cloud-Native Geospatial Workflow with STAC and Xarray</h2>
+            <p class="project-desc">A reproducible workflow for querying cloud-hosted elevation data via STAC, computing terrain derivatives, and turning them into analysis-ready geospatial products without manual downloads.</p>
+            <div class="project-tags">
+              <span class="project-tag">STAC</span>
+              <span class="project-tag">Xarray</span>
+              <span class="project-tag">Cloud-Native</span>
+            </div>
+            <div class="project-links">
+              <a class="project-link" href="https://github.com/astroAycha/canada-terrain-stac" target="_blank" rel="noopener">View repository →</a>
+              <a class="project-link" href="writing/cnd_arctic_dem/cnd_dem_stac.html">View writeup →</a>
+            </div>
+            <div class="project-embed project-embed--tall">
+              <iframe
+                src="writing/cnd_arctic_dem/qu_chm.html"
+                title="CND DEM canopy height model"
+                loading="lazy"
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
         </div>
