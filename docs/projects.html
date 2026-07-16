@@ -56,7 +56,7 @@
 
     /* ─── Layout ─────────────────────────────────────── */
     .container {
-      max-width: 840px;
+      max-width: 1000px;
       margin: 0 auto;
       padding: 0 2rem;
     }
@@ -166,6 +166,10 @@
       grid-template-columns: 1fr auto;
       gap: 0 2rem;
       align-items: start;
+    }
+
+    .project > div {
+      min-width: 0;
     }
 
     .project:first-child {
@@ -428,15 +432,15 @@
             <div class="project-links">
               <a class="project-link" href="https://github.com/astroAycha/gta_air_quality" target="_blank" rel="noopener">View repository →</a>
               <a class="project-link" href="pm25_gta_animation.html">View PM2.5 animation →</a>
-              <a class="project-link" href="https://huggingface.co/spaces/astroAycha/gta-air-quality" target="_blank" rel="noopener">View live dashboard on Hugging Face Spaces →</a>
+              <a class="project-link" href="gta_air_quality_dashboard.html" target="_blank" rel="noopener">View live dashboard →</a>
             </div>
             <div class="project-embed">
               <iframe
                 src="pm25_gta_animation.html"
-                title="PM2.5 GTA Animation"
                 loading="lazy"
-                allowfullscreen>
-              </iframe>
+                title="PM2.5 GTA Animation"
+                allowfullscreen
+              ></iframe>
             </div>
           </div>
         </div>
