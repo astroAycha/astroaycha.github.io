@@ -32,6 +32,7 @@
 
     /* ─── Base ───────────────────────────────────────── */
     html { font-size: 16px; }
+    html { scrollbar-gutter: stable; }
 
     body {
       font-family: var(--font-sans);
@@ -55,11 +56,16 @@
     }
 
     /* ─── Layout ─────────────────────────────────────── */
-    .container {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 0 2rem;
-    }
+  .container {
+    max-width: 1100px;   /* same value in all three files */
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .content-container {   /* only for body text you want narrower */
+    max-width: 720px;
+    margin: 0 auto;
+  }
 
     /* ─── Nav ────────────────────────────────────────── */
     nav {
